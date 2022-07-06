@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+material = SubResource( 3 )
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[sub_resource type="CylinderShape" id=5]
+radius = 0.2
+height = 1.0
+
+[node name="Gun" type="StaticBody"]
+transform = Transform( 1.51086, 0, 0, 0, -6.60418e-08, -1.51086, 0, 1.51086, -6.60418e-08, 0, 0, 0 )
+
+[node name="GunMesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="BulletSpawnPoint" type="Spatial" parent="GunMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.593535, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )

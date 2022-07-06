@@ -1,0 +1,7 @@
+Godot Engine v3.4.4.stable.mono.official.419e713a2 - https://godotengine.org
+OpenGL ES 3.0 Renderer: AMD Radeon Vega 10 Graphics (raven, LLVM 13.0.1, DRM 3.42, 5.15.0-40-generic)
+OpenGL ES Batching: ON
+ 
+Mono: Log file is: '/home/kanoto/.local/share/godot/mono/mono_logs/2022-07-04_23.25.35_9357.log'
+ERROR: Cannot instance script because the project assembly is not loaded. Script: 'res://Scripts/Player.cs'.
+   at: can_instance (modules/mono/csharp_script.cpp:2889) - Method failed. Returning: __null
