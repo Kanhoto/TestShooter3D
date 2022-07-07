@@ -15,9 +15,12 @@
 | left mouse | Shoot |
 | space | Jump |
 
+Rotation on axis are not locked and I'm still searching why.
+
 ### Bullets : ❌ (don't work)
 
 Bullets are just sphere mesh with a rigidbody, I make them spawn at a spawn point placed in front of the gun and I give them some inertia.
+Currently, they spawn but they don't have any power, they just drop in front of the player.
 
 ## Next steps
 
