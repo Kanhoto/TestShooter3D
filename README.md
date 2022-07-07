@@ -1,8 +1,8 @@
 # TestShooter3D
 
-![Preview of the project](https://i.postimg.cc/qqgTMhvc/Capture-d-cran-du-2022-07-06-20-45-47.png)
+## Game project on Godot engine mono C#
 
-## Current version
+![Preview of the project](https://i.postimg.cc/qqgTMhvc/Capture-d-cran-du-2022-07-06-20-45-47.png)
 
 ### Player controls : ✅
 
