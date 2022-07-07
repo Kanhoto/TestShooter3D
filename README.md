@@ -24,9 +24,12 @@ Currently, they spawn but they don't have any power, they just drop in front of 
 
 ## Next steps
 
+ - Repair the motion axis lock
  - Trying to shoot some bullets
  - add some more type of bullets (curved trajectory type, auto aim type, ...)
- - add a shield system
- - add life system (no mana/ammount since bullet will be shooted with life)
+ - add a shield system (front shield, sphere shield, ...)
+ - add life system (no mana/ammo since bullet will be shooted with life)
  - add swords
  - add walk on wall
+ - add multiple jump (cost energy)
+ - add multiplayer
