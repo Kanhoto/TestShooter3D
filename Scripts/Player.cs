@@ -36,24 +36,25 @@ public class Player : KinematicBody
 
     private PackedScene bulletScene;
     private Spatial bulletSpawnPoint;
-    // Called when the node enters the scene tree for the first time.
+
+    /// <summary> Called when the node enters the scene tree for the first time </summary>
     public override void _Ready()
     {
         pivot = GetNode<Spatial>("Pivot");
         camera = GetNode<Camera>("Pivot/SpringArm/Camera");
-        bulletSpawnPoint = GetNode<Spatial>("Pivot/Gun/GunMesh/BulletSpawnPoint");
-
+        bulletSpawnPoint = GetNode<Spatial>("Gun/BulletSpawnPoint");
+        
         bulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Bullet.tscn");
 
         Input.SetMouseMode(Input.MouseMode.Captured);
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
- public override void _Process(float delta)
- {
-     if(Input.IsActionJustPressed("ui_cancel"))
-        Input.SetMouseMode(Input.MouseMode.Visible);
- }
+    /// <summary> Called every frame. 'delta' is the elapsed time since the previous frame </summary>
+    public override void _Process(float delta)
+    {
+        if(Input.IsActionJustPressed("ui_cancel"))
+            Input.SetMouseMode(Input.MouseMode.Visible);
+    }
 
     public override void _Input(InputEvent @event)
     {
@@ -65,30 +66,32 @@ public class Player : KinematicBody
             RotationDegrees = rotDeg;
 
             rotDeg = pivot.RotationDegrees;
-            rotDeg.x -= motionEvent.Relative.y * mouse_sensitivity;
+            rotDeg.x += motionEvent.Relative.y * mouse_sensitivity;
             rotDeg.x = Mathf.Clamp(rotDeg.x, min_pitch, max_pitch);
             pivot.RotationDegrees = rotDeg;
         }
     }
 
+    /// <summary> Called every frame. 'delta' is the elapsed time since the previous frame. </summary>
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
         handle_movement(delta);
     }
 
+    /// <summary> Called every frame. 'delta' is the elapsed time since the previous frame </summary>
     private async void handle_movement(float delta)
     {
         Vector3 direction = new Vector3(Vector3.Zero);
 
         if(Input.IsActionPressed("forward"))
-            direction -= Transform.basis.z;
-        if(Input.IsActionPressed("backward"))
             direction += Transform.basis.z;
+        if(Input.IsActionPressed("backward"))
+            direction -= Transform.basis.z;
         if(Input.IsActionPressed("left"))
-            direction -= Transform.basis.x;
-        if(Input.IsActionPressed("right"))
             direction += Transform.basis.x;
+        if(Input.IsActionPressed("right"))
+            direction -= Transform.basis.x;
 
         direction = direction.Normalized();
 
@@ -100,7 +103,7 @@ public class Player : KinematicBody
             // set position of bullet
             bullet.GlobalTransform = bulletSpawnPoint.GlobalTransform;
             // apply impulse
-            bullet.ApplyCentralImpulse(bulletSpawnPoint.GlobalTransform.basis.y * shoot_power * -1 + velocity);
+            bullet.ApplyCentralImpulse(bulletSpawnPoint.GlobalTransform.basis.y * shoot_power + velocity);
 
             // 5 seconds dynamic yield
             await ToSignal(GetTree().CreateTimer(5), "timeout");
