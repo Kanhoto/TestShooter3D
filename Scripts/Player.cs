@@ -42,7 +42,7 @@ public class Player : KinematicBody
     {
         pivot = GetNode<Spatial>("Pivot");
         camera = GetNode<Camera>("Pivot/SpringArm/Camera");
-        bulletSpawnPoint = GetNode<Spatial>("Gun/BulletSpawnPoint");
+        bulletSpawnPoint = GetNode<Spatial>("Pivot/Gun/BulletSpawnPoint");
         
         bulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Asteroid.tscn");
 

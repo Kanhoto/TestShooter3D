@@ -19,13 +19,14 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="GunMesh" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0 )
+transform = Transform( 1, 0, 0, 0, 2.51172, -6.60795e-08, 0, -6.60795e-08, 1, 0, 1.04657e-07, -1.96932e-15 )
 mesh = SubResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 2.51172, -6.60795e-08, 0, -6.60795e-08, 1, 0, -4.50528e-08, 1.96932e-15 )
 shape = SubResource( 5 )
 
 [node name="BulletSpawnPoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0.972911, -1.6583e-08 )
+transform = Transform( 1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 1.53247, -4.10423e-08 )
