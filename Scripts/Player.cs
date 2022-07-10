@@ -44,7 +44,7 @@ public class Player : KinematicBody
         camera = GetNode<Camera>("Pivot/SpringArm/Camera");
         bulletSpawnPoint = GetNode<Spatial>("Gun/BulletSpawnPoint");
         
-        bulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Bullet.tscn");
+        bulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Asteroid.tscn");
 
         Input.SetMouseMode(Input.MouseMode.Captured);
     }

@@ -2,7 +2,7 @@
 
 ## Game project on Godot engine mono C#
 
-![Preview of the project](https://i.postimg.cc/qqgTMhvc/Capture-d-cran-du-2022-07-06-20-45-47.png)
+![Preview of the project](https://i.postimg.cc/4yZ42wn5/Capture-d-cran-du-2022-07-09-11-02-08.png)
 
 ### Player controls : ✅
 
@@ -17,11 +17,11 @@
 
 ### Bullets : ✅
 
-Bullets are just sphere mesh with a rigidbody, I make them spawn at a spawn point placed in front of the gun and I give them some inertia.
+Bullets are green blooming cube with a rigidbody, I make them spawn at a spawn point placed in front of the gun and I give them some inertia.
 
 ### Trion stats for player: ❌
 
-Didn't even start but suppose it won't be the hardest part.
+I have a rainbow bar ^^, but I aim for a gradient that will go from blue to green.
 
 ## Next steps
 
