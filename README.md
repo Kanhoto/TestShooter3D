@@ -2,7 +2,7 @@
 
 ## Game project on Godot engine mono C#
 
-![Preview of the project](https://i.postimg.cc/DzYfCk4P/Capture-d-cran-du-2022-07-09-11-02-08.png)
+![Preview of the project](https://i.postimg.cc/RVMmq7P5/Capture-d-cran-du-2022-07-11-22-08-14.png)
 
 ### Player controls : ✅
 
