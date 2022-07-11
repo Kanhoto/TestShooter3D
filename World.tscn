@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Bouton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Manequin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://Shaders/TrionLevelBar.tres" type="Shader" id=5]
@@ -17,18 +17,26 @@ shader_param/angle = 0.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
 
-[node name="Bouton" parent="WorldEnvironment" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.368316, 0, 0, 0, 1, 1.32657, -2.55088, -9.78335 )
-
 [node name="Player" parent="WorldEnvironment" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54583, -3.05412, -1.07969 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.54583, -3.05412, -1.07969 )
 
-[node name="Ground" parent="WorldEnvironment" instance=ExtResource( 2 )]
-transform = Transform( 26.9787, 0, 0, 0, 2.36618, 0, 0, 0, 19.1255, 0, -5.42032, 0 )
+[node name="Floor" parent="WorldEnvironment" instance=ExtResource( 2 )]
+transform = Transform( 26.9787, 0, 0, 0, 2.36618, 0, 0, 0, 19.1255, 0.312737, -5.68645, -5.66826 )
+
+[node name="Manequin" parent="WorldEnvironment" instance=ExtResource( 1 )]
+transform = Transform( 1.00469, 0, 0, 0, 2.45333, 0, 0, 0, 1.00469, -0.513389, -0.854835, -11.9942 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1024.0
 margin_bottom = 603.0
+
+[node name="ColorRectStroke" type="ColorRect" parent="Control"]
+margin_left = 361.0
+margin_top = 530.0
+margin_right = 649.0
+margin_bottom = 565.0
+hint_tooltip = "Trion level bar"
+color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 material = SubResource( 1 )

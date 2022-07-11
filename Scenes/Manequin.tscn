@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CylinderMesh" id=9]
+
+[sub_resource type="CylinderShape" id=8]
+
+[node name="Manequin" type="Spatial"]
+transform = Transform( 1.00469, 0, 0, 0, 2.45333, 0, 0, 0, 1.00469, 0, 0, 0 )
+
+[node name="Arm" type="StaticBody" parent="."]
+transform = Transform( -4.40611e-08, 2.46143, 0, -0.171998, -1.83588e-08, 0, 0, 0, 0.42, 0, 0.407609, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Arm"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Arm"]
+shape = SubResource( 8 )
+
+[node name="Head" type="StaticBody" parent="."]
+transform = Transform( 0.790272, 0, 0, 0, 0.344243, 0, 0, 0, 0.790272, 0, 1.40725, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467172, 0 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Head"]
+shape = SubResource( 8 )
+
+[node name="Neck" type="StaticBody" parent="."]
+transform = Transform( 0.42, 0, 0, 0, 0.2772, 0, 0, 0, 0.42, 0, 1.10182, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Neck"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Neck"]
+shape = SubResource( 8 )
+
+[node name="Body" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Body"]
+mesh = SubResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Body"]
+shape = SubResource( 8 )

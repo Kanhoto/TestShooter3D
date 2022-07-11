@@ -19,6 +19,7 @@ surfaces/0 = {
 [sub_resource type="BoxShape" id=2]
 
 [node name="Asteroid" type="RigidBody"]
+gravity_scale = 0.0
 
 [node name="AsteroidCube" type="MeshInstance" parent="."]
 transform = Transform( 0.357195, 0, 0, 0, 0.357195, 0, 0, 0, 0.357195, 0, 0, 0 )

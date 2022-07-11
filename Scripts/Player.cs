@@ -15,8 +15,6 @@ public class Player : KinematicBody
     float max_terminal_velocity = 54f;
     [Export]
     float jump_power = 20f;
-    [Export]
-    float shoot_power = 20f;
 
     [Export(PropertyHint.Range, "0.1,1.0")]
     
@@ -34,18 +32,11 @@ public class Player : KinematicBody
     private Spatial pivot;
     private Camera camera;
 
-    private PackedScene bulletScene;
-    private Spatial bulletSpawnPoint;
-
     /// <summary> Called when the node enters the scene tree for the first time </summary>
     public override void _Ready()
     {
         pivot = GetNode<Spatial>("Pivot");
         camera = GetNode<Camera>("Pivot/SpringArm/Camera");
-        bulletSpawnPoint = GetNode<Spatial>("Pivot/Gun/BulletSpawnPoint");
-        
-        bulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Asteroid.tscn");
-
         Input.SetMouseMode(Input.MouseMode.Captured);
     }
 
@@ -79,8 +70,8 @@ public class Player : KinematicBody
         handle_movement(delta);
     }
 
-    /// <summary> Called every frame. 'delta' is the elapsed time since the previous frame </summary>
-    private async void handle_movement(float delta)
+    /// <summary> Handle the movement of player and action of player </summary>
+    private void handle_movement(float delta)
     {
         Vector3 direction = new Vector3(Vector3.Zero);
 
@@ -92,26 +83,7 @@ public class Player : KinematicBody
             direction += Transform.basis.x;
         if(Input.IsActionPressed("right"))
             direction -= Transform.basis.x;
-
         direction = direction.Normalized();
-
-        if(Input.IsActionJustPressed("shoot"))
-        {
-            RigidBody bullet = bulletScene.Instance<RigidBody>();
-            GetTree().Root.AddChild(bullet);
-
-            // set position of bullet
-            bullet.GlobalTransform = bulletSpawnPoint.GlobalTransform;
-            // apply impulse
-            bullet.ApplyCentralImpulse(bulletSpawnPoint.GlobalTransform.basis.y * shoot_power + velocity);
-
-            // 5 seconds dynamic yield
-            await ToSignal(GetTree().CreateTimer(5), "timeout");
-            bullet.QueueFree(); // Destroy bullet
-
-            if(Input.GetMouseMode() != Input.MouseMode.Captured)
-                Input.SetMouseMode(Input.MouseMode.Captured);
-        }
 
         float accel = IsOnFloor() ? acceleration : air_acceleration;
         velocity = velocity.LinearInterpolate(direction * speed, accel*delta);
