@@ -19,16 +19,21 @@
 
 Bullets are green blooming cube with a rigidbody, I make them spawn at a spawn point placed in front of the gun and I give them some inertia.
 
-### Trion stats for player: ❌
+### Life bar for player: ❌
 
 I have a rainbow bar ^^, but I want a gradient that will go from blue to green.
 
 ## Next steps
 
  - add some more type of bullets (curved trajectory type, auto aim type, ...)
+ - add bullets self-destruction when they hit something (exception made later)
  - add a shield system (front shield, sphere shield, ...)
  - add life system (no mana/ammo since bullet will be shooted with life)
  - add swords
  - add walk on wall
- - add multiple jump (cost energy)
  - add multiplayer
+ - add team system
+ - add time limit
+ - add damage when hit
+ - add extra weapons (invisibility, bouncing on air, dummies, teleportation, x-ray vision, ...)
+ - add interaction between weapon (bullets can bounce off 
