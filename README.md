@@ -21,7 +21,7 @@ Bullets are green blooming cube with a rigidbody, I make them spawn at a spawn p
 
 ### Trion stats for player: ❌
 
-I have a rainbow bar ^^, but I aim for a gradient that will go from blue to green.
+I have a rainbow bar ^^, but I want a gradient that will go from blue to green.
 
 ## Next steps
 
